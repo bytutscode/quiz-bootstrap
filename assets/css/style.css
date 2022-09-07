@@ -6,6 +6,8 @@
 } */
 body {
     background-color: rgb(26, 26, 26);
+    min-width: 100vh;
+    width: 100%;
 }
 .list-group-item{
     -webkit-touch-callout: none;
