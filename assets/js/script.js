@@ -19,6 +19,8 @@ function update () {
     document.querySelector('.modal-header h5').innerHTML =`${currentQuestion + 1}.${pergunta.question}`;
     document.querySelector('.list-group').innerHTML = '';
 
+    shuffle(pergunta.options);
+    
     pergunta.options.forEach((item,idx)=>{
         
         document.querySelector('.list-group').innerHTML += `<div role="button" class="list-group-item list-group-item-action d-flex  align-items-center border border-secondary rounded-4 p-2 text-dark fs-5 my-1"><span class="rounded-circle d-flex justify-content-center align-items-center text-white bg-black me-2">${idx + 1}º</span>${item}</div>`;
@@ -27,7 +29,7 @@ function update () {
     document.querySelectorAll('.list-group-item').forEach((element,idx)=>{
     element.addEventListener('click',(e)=>{
        if(runing){
-            if((idx + 1) == questions[currentQuestion].answer){
+            if(questions[currentQuestion].options[idx] == questions[currentQuestion].answer){
                 element.classList.add('bg-success');
                 points++;
                 runing = false;
@@ -95,6 +97,7 @@ function reset () {
     }
     currentQuestion = 0;
     points = 0;
+    shuffle(questions);
     update();
 }
 
