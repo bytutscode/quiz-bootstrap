@@ -79,7 +79,11 @@ setTimeout(()=>{
     document.querySelector('.list-group').style.opacity = 1;
     document.querySelector('.modal-content').classList.add(bg)
     document.querySelector('.modal-header h5').innerHTML = msg;
-    document.querySelector('.list-group').innerHTML = `Você acertou ${percent}% das questões! isso representa ${points} resposta(s) correta(s) de ${questions.length} respondidas!`;
+    if(points > 1){
+        document.querySelector('.list-group').innerHTML = `Você acertou ${percent}% das questões! isso representa ${points} respostas corretas de ${questions.length} respondidas!`;
+    } else {
+        document.querySelector('.list-group').innerHTML = `Você acertou ${percent}% das questões! isso representa ${points} resposta correta de ${questions.length} respondidas!`;
+    }
    }
 };
 
